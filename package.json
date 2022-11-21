@@ -1,0 +1,24 @@
+{
+    "name": "php",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "dead-server --port=4009 --host=localhost",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bozenakr/php.git"
+    },
+    "keywords": [],
+    "author": "Bozena",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/bozenakr/php/issues"
+    },
+    "homepage": "https://github.com/bozenakr/php#readme",
+    "devDependencies": {
+        "dead-server": "^1.0.9"
+    }
+}
