@@ -28,7 +28,6 @@
 
 // =====push unshift
 
-
 const array = ['liutas', 'pingvinas'];
 // array.push('a', 'b');
 // array.unshift('z', 'v');
