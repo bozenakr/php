@@ -98,12 +98,94 @@ console.log(wallet30);
 //8.	Naudojant 1 uždavinio masyvą iš jo reikšmių sukurti dar du papildomus masyvus. Į vieną iš 1 uždavinio masyvo pridėti reikšmes mažesnes arba lygias 2 (monetas), o į kitą didesnes nei 2 (popierinius pinigus);
 console.log('==========8==========')
 console.log(wallet);
-console.log('===sukurti 2 masyvai===');
-const wallet1 = wallet.filter(what => what <= 2);
-console.log(wallet1);
-const wallet2 = wallet.filter(what => what > 2);
-console.log(wallet2);
+console.log('=sukurti 2 masyvai=');
+const walletMonetos = wallet.filter(what => what <= 2);
+console.log(walletMonetos);
+const walletBanknotai = wallet.filter(what => what > 2);
+console.log(walletBanknotai);
 
 //9.	Sukurti masyvą (piniginę su dviem skyreliais) iš dviejų elementų, kurio pirmas elementas būtų masyvas iš 8 uždavinio su monetom, o antras elementas masyvas iš 8 uždavinio su popieriniais pinigais;
+console.log('==========9==========')
+const arrayFrom2Arrays = [];
+console.log(arrayFrom2Arrays);
+
+arrayFrom2Arrays.push(walletMonetos, walletBanknotai);
+console.log(arrayFrom2Arrays);
+
+//10.	Į 9 uždavinio masyvą, piniginę su dviem skyreliais, pridėti trečią skyrelį- masyvą su kortelėm: ['KIKA', 'Euro Vaistinė', 'Drogas', 'Ačiū', 'Lietuvos Geležinkeliai', 'Mano RIMI'];
+console.clear();
+console.log('==========10==========')
+const wallet3Skyreliai = [];
+const walletKorteles = ['KIKA', 'Euro Vaistinė', 'Drogas', 'Ačiū', 'Lietuvos Geležinkeliai', 'Mano RIMI'];
+
+wallet3Skyreliai.push(walletMonetos, walletBanknotai, walletKorteles);
+console.log(wallet3Skyreliai);
+
+//11.	Korteles skyrelyje sudėlioti (išrūšiuoti) pagal abėcėlę;
+console.log('==========11==========')
+
+//====sort=====
+console.log('==sort==')
+walletKorteles.sort();
+console.log(wallet3Skyreliai);
+
+//====localeCompare====
+// console.log('==localeCompare==');
+// walletKorteles.sort((a) => a[0].localeCompare(a[1]));
+// console.log(arrayFrom3Arrays);
+
+//12.	Į kortelių skyrelį pridėti mokėjimo kortelių 'MasterCard', 'Visa' (su rand generuokite atsitiktines reikšmes 'MasterCard' arba 'Visa' ir rašykite į masyvą) iš skirtingų bankų tiek, kad skyrelis (masyvo ilgis) pasidarytų lygus 20;
+
+console.log('==========12==========')
+//pirma susikuriu masyvo kopija
+//paleidziu cikla nuo mano turimo masyvo ilgio iki norimo masyvo ilgio (20)
+//sukuriu nauja masyva su stringais - is ju rinksiu random indexa
+//pasirenku random index of masyvas su variantais ir priskiriu jam reiksme array[i]
+//supushinu i masyva mano random reiksmes
+//
+const walletKorteles20 = [...walletKorteles];
+
+for (let i = walletKorteles20.length; i < 20; i++) {
+    const VisaOrMastercard = ['Visa', 'Mastercard'];
+    const randomKortelesIndex = Math.floor((Math.random() * VisaOrMastercard.length));
+    const randomKortele = VisaOrMastercard[randomKortelesIndex];
+    walletKorteles20.push(randomKortele);
+}
+console.log(walletKorteles20);
+
+//13.	Paskaičiuokite, kokio tipo kortelių ('MasterCard' arba 'Visa') yra daugiau;
+console.log('==========13==========')
+
+const kiekVisa = walletKorteles20.filter(what => what === 'Visa').length;
+console.log(kiekVisa, 'kiek yra Visa');
+
+const kiekMastercard = walletKorteles20.filter(what => what === 'Mastercard').length;
+console.log(kiekMastercard, 'kiek yra Mastercard');
 
 
+//14.	Sukurkite masyve (piniginėje) ketvirtą elementą (skyrelį) į kurį įdėkite 10 loterijos bilietų, kurių numerius sugeneruokite atsitiktinai su rand funkcija nuo 1000000000 iki 9999999999;
+console.log('==========14==========')
+const wallet4Skyrelis = [];
+
+for (let i = 0; i < 10; i++) {
+    function randomLoterijosBilietas(min, max) {
+        min = 1000000000;
+        max = 9999999999;
+        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    }
+    console.log(randomLoterijosBilietas(), 'Loterijos bilietas');
+    wallet4Skyrelis.push(randomLoterijosBilietas());
+
+}
+console.log(wallet4Skyrelis);
+
+//15.	Loterijos bilietų masyvą išrūšiuoti nuo didžiausio numerio iki mažiausio;
+console.log('==========15==========')
+wallet4Skyrelis.sort((a, b) => b - a);
+console.log(wallet4Skyrelis);
+
+//16.	Į piniginės popierinių pinigų skyrelį įdėti 500 pinigų mažom kupiūrom ( generuoti atsitiktinius skaičius nuo 3 iki 10 ir dėti kaip naujus elementus, kol įdėta suma bus lygi 500);
+
+// 17.	Patikrinti ar ką nors laimėjote.Bilieto numerius dalinkite iš 777 ir jeigu numeris išsidalins be liekanos - jūs laimėjote! Suskaičiuokite, kiek buvo laimingų bilietų.
+
+//18.	 Sukurkite penktą skyrelį ir į jį sudėkite nuotraukas: ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'] ir jas išrūšiuokite pagal žodžių ilgį taip, kad pirma eitų trumpiausi žodžiai;
