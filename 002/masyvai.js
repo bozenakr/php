@@ -113,7 +113,7 @@ arrayFrom2Arrays.push(walletMonetos, walletBanknotai);
 console.log(arrayFrom2Arrays);
 
 //10.	Į 9 uždavinio masyvą, piniginę su dviem skyreliais, pridėti trečią skyrelį- masyvą su kortelėm: ['KIKA', 'Euro Vaistinė', 'Drogas', 'Ačiū', 'Lietuvos Geležinkeliai', 'Mano RIMI'];
-console.clear();
+
 console.log('==========10==========')
 const wallet3Skyreliai = [];
 const walletKorteles = ['KIKA', 'Euro Vaistinė', 'Drogas', 'Ačiū', 'Lietuvos Geležinkeliai', 'Mano RIMI'];
@@ -165,7 +165,7 @@ console.log(kiekMastercard, 'kiek yra Mastercard');
 
 //14.	Sukurkite masyve (piniginėje) ketvirtą elementą (skyrelį) į kurį įdėkite 10 loterijos bilietų, kurių numerius sugeneruokite atsitiktinai su rand funkcija nuo 1000000000 iki 9999999999;
 console.log('==========14==========')
-const wallet4Skyrelis = [];
+const walletLoterija = [];
 
 for (let i = 0; i < 10; i++) {
     function randomLoterijosBilietas(min, max) {
@@ -174,18 +174,61 @@ for (let i = 0; i < 10; i++) {
         return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
     }
     console.log(randomLoterijosBilietas(), 'Loterijos bilietas');
-    wallet4Skyrelis.push(randomLoterijosBilietas());
+    walletLoterija.push(randomLoterijosBilietas());
 
 }
-console.log(wallet4Skyrelis);
+console.log(walletLoterija);
 
 //15.	Loterijos bilietų masyvą išrūšiuoti nuo didžiausio numerio iki mažiausio;
 console.log('==========15==========')
-wallet4Skyrelis.sort((a, b) => b - a);
-console.log(wallet4Skyrelis);
+walletLoterija.sort((a, b) => b - a);
+console.log(walletLoterija);
 
 //16.	Į piniginės popierinių pinigų skyrelį įdėti 500 pinigų mažom kupiūrom ( generuoti atsitiktinius skaičius nuo 3 iki 10 ir dėti kaip naujus elementus, kol įdėta suma bus lygi 500);
+console.clear();
+console.log('==========16==========')
+const walletBanknotaiKolSuma500 = [...walletBanknotai];
+console.log(walletBanknotaiKolSuma500);
+
+let banknotuSuma = 0;
+for (let i = 0; i < walletBanknotaiKolSuma500.length; i++) {
+    banknotuSuma += walletBanknotaiKolSuma500[i];
+}
+console.log(banknotuSuma, 'Banknotu suma');
+
+let randomBanknotas = 0;
+for (let i = walletBanknotaiKolSuma500.length; i < banknotuSuma; i++) {
+    function randomBanknotas(min, max) {
+        min = 3;
+        max = 10;
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    // walletBanknotaiKolSuma500.push(randomBanknotas());
+}
+
+
+// let skaicius = 0;
+// for (let i = 0; i < wallet.length; i++) {
+//     if (wallet[i] === max) {
+//         skaicius++;
+//     }
+// }
+// return skaicius;
+// };
 
 // 17.	Patikrinti ar ką nors laimėjote.Bilieto numerius dalinkite iš 777 ir jeigu numeris išsidalins be liekanos - jūs laimėjote! Suskaičiuokite, kiek buvo laimingų bilietų.
+console.log('==========17==========')
+
+const laimingiBilietai = walletLoterija.filter(what => what % 5 === 0);
+console.log(laimingiBilietai);
+
+const kiekLaiminguBilietu = laimingiBilietai.length;
+console.log(kiekLaiminguBilietu);
+
 
 //18.	 Sukurkite penktą skyrelį ir į jį sudėkite nuotraukas: ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'] ir jas išrūšiuokite pagal žodžių ilgį taip, kad pirma eitų trumpiausi žodžiai;
+console.log('==========18==========')
+
+const walletNuotraukos = ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'];
+walletNuotraukos.sort((a, b) => a.length - b.length);
+console.log(walletNuotraukos);
