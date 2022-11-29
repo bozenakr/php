@@ -2,10 +2,8 @@
 
 function Props1 ({manospalva}) {
     return (
-        <>
-    <h1 style={{
-        color: manospalva
-    }}>Componentas su 1 props - mano spalva</h1>   
+    <>
+    <h1 style={{color: manospalva}}>Componentas su 1 props - mano spalva</h1>   
     </>
     )
 }

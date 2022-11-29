@@ -3,10 +3,9 @@
 function ColorTernary ({spalva12}) {
     return (
         <>
-    <h1 style={{
-        color: spalva12
-        }}>Zebrai ir Bebrai Componentas su TERNARY melyna/raudona</h1>   
-    </>
+    <h1 style={{color: spalva12}}>
+            Zebrai ir Bebrai Componentas su TERNARY melyna/raudona</h1>   
+        </>
     )
 }
 

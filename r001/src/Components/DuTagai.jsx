@@ -5,7 +5,7 @@ function DuTagai ({pirmas, antras}) {
         <>
         <h1>{pirmas}</h1>
         <h2>{antras}</h2>
-    </>
+        </>
     )
 }
 
