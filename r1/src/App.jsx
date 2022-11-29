@@ -1,17 +1,16 @@
 import './App.css';
-import Valio from './Components/Valio';
-import random from './Functions/random';
 
+const m = [
+    'Pilkis',
+    'Pukis',
+    'Rainis'
+]
 function App() {
   return (
     <div className="App">
-      <header className="App-header" style={{
-        color: random(0, 1) ? 'crimson' : 'skyblue',
-        letterSpacing: '18px'
-        }}>
-      <Valio/>
-      <div>{ random(1, 7) }</div>
-      </header>
+      <div className="App-header">
+        {m.map((cat, i) => <h2 key={i}>{cat}</h2>)}
+      </div>
     </div>
   );
 }
