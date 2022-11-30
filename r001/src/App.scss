@@ -117,3 +117,40 @@
   transition: all 0.5s;
   margin: 100px;
 }
+
+.square {
+  height: 150px;
+  width: 150px;
+  background-color: #61dafb;
+  color: crimson;
+  font-weight: bold;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #b567f4;
+  color: rgb(8, 8, 8);
+  font-weight: bold;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shape {
+    height: 150px;
+      width: 150px;
+      background-color: #b567f4;
+      color: rgb(8, 8, 8);
+      font-weight: bold;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
