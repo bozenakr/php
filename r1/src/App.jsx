@@ -27,6 +27,9 @@ function App() {
         ]);
     }
 
+    const write = () => {
+        localStorage.setItem('myCat', 'Big and Black')
+    }
 
     return (
         <div className="App">
@@ -41,6 +44,7 @@ function App() {
                 }
             </div>
                 <button onClick={add}>ADD</button>
+                <button onClick={write}>Write</button>
             </div>
         </div>
     );

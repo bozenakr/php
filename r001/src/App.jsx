@@ -148,7 +148,7 @@ import randColor from './Functions/randColor'
             <div className="App-header">
             <div className="bin">
                 {
-                    sq.map(square => <Sq square={square} setSq={setSq}/>)
+                    sq.map(what => <Sq square={what} setSq={setSq}/>)
                 }
             </div>
             <div>
@@ -162,3 +162,29 @@ import randColor from './Functions/randColor'
 }
 
 export default App;
+
+//6. test 
+// paspaudi viena mygtuka vertikalus - paspaudi antra mygtuka horizontalus
+
+
+// function App() {
+
+//     const [ro, setRo] = useState(true);
+
+//     return (
+//         <div className="App">
+//             <div className="App-header">
+//                 <div className="kv" style={{
+//                     transform: ro ? null : 'rotate(90deg)'
+//                 }}></div>
+//                 <div>
+//                 <button onClick={() => setRo(true)}>GO</button>
+//                 <button onClick={() => setRo(false)} style={{transform: 'rotate(90deg)'}}>GO</button>
+//                 </div>
+//             </div>
+            
+//         </div>
+//     );
+// }
+
+// export default App;

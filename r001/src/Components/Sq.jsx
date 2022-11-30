@@ -1,6 +1,6 @@
 // import { useEffect } from "react";
 
-function Sq({ square, setSq }) {
+function Sq({square}) {
 
 
     // useEffect(() => {
@@ -10,16 +10,15 @@ function Sq({ square, setSq }) {
     //     }
     // }, []);
 
-    const destroy = () => {
-        setSq(s => s.filter(oneSq => oneSq.id !== square.id));
-    }
+    // const destroy = () => {
+    //     setSq(s => s.filter(oneSq => oneSq.id !== square.id));
+    // }
 
     return (
-        <div className="sq" style={{
-            backgroundColor: square.color
-        }} onClick={destroy}>
-            {square.id}
-        </div>
+        <div className="sq"
+            style={{backgroundColor: square.color}} 
+            // onClick={destroy}>{square.id}
+        ></div>
     )
 }
 
