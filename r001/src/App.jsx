@@ -148,8 +148,8 @@ import randColor from './Functions/randColor'
             <div className="App-header">
             <div className="bin">
                 {
-                    sq.map(what => <Sq square={what} setSq={setSq}/>)
-                }
+                    sq.map((what, i) => <div key={i} className="sq"style={{backgroundColor: what.color}}></div>)}
+                    {/* what tai naujo(tuscio) masyvo 0 elementas, permeta per => sukuria div su backgroundColor what.color - tai yra su color 'crimson' arba 'blue' */}
             </div>
             <div>
                 <button onClick={addRed}>Add red</button>

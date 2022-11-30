@@ -15,11 +15,9 @@ function Sq({square}) {
     // }
 
     return (
-        <div className="sq"
-            style={{backgroundColor: square.color}} 
-            // onClick={destroy}>{square.id}
-        ></div>
-    )
-}
-
-export default Sq;
+        <div className="sq"style={{backgroundColor: square.color}} ></div>
+        )
+    }
+    
+    export default Sq;
+    // onClick={destroy}>{square.id}
