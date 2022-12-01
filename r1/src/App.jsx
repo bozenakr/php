@@ -16,33 +16,32 @@ import { useEffect } from 'react';
 // ];
 
 function App() {
+    // const [sq, setSq] = useState(null);
 
-    const [sq, setSq] = useState(null);
-    // const [cat, setCat] = useState({});
+    const [cat, setCat] = useState({});
 
-    useEffect(() => {
-        if (null === sq) {
-            const kv = localStorage.getItem('kv');
-            if (null === kv) {
-                setSq([]);
-            } else {
-                setSq(JSON.parse(kv));
-            }
-        } else {
-            localStorage.setItem('kv', JSON.stringify(sq));
-        }
-    }, [sq]);
+    // useEffect(() => {
+    //     if (null === sq) {
+    //         const kv = localStorage.getItem('kv');
+    //         if (null === kv) {
+    //             setSq([]);
+    //         } else {
+    //             setSq(JSON.parse(kv));
+    //         }
+    //     } else {
+    //         localStorage.setItem('kv', JSON.stringify(sq));
+    //     }
+    // }, [sq]);
 
-
-
-    const add = () => {
-        setSq(s => [...s, 
-            {
-            id: rand(100000, 999999),
-            color: randColor()
-            }
-        ]);
-    }
+    // const add = () => {
+    //     setSq((s) => [
+    //         ...s,
+    //         {
+    //             id: rand(100000, 999999),
+    //             color: randColor(),
+    //         },
+    //     ]);
+    // };
 
     // const write = () => {
     //     localStorage.setItem('myCat', JSON.stringify({cat: 'Big and Black', color: 'crimson'}));
@@ -54,26 +53,29 @@ function App() {
     //     localStorage.removeItem('myCat');
     // }
 
-
     return (
         <div className="App">
             <div className="App-header">
-                {/* {m.map((a, i) => a.type === 'cat' ?
-            <Cat key={i} cat={a}/> :
-            <Dog key={i} dog={a}/>
-            )} */}
-            <div className="bin">
-                {
-                    sq?.map(square => <Sq key={square.id} square={square} setSq={setSq} />)
-                }
-            </div>
-                {/* <h2 style={{color: cat?.color}}>{cat?.cat}</h2> */}
-                <button onClick={add}>ADD</button>
-                {/* <button onClick={write}>WRITE</button>
+                {m.map((a, i) =>
+                    a.type === 'cat' ? (
+                        <Cat key={i} cat={a} />
+                    ) : (
+                        <Dog key={i} dog={a} />
+                    )
+                )}
+                {/* <div className="bin">
+                    {sq?.map((square) => (
+                        <Sq key={square.id} square={square} setSq={setSq} />
+                    ))}
+                </div> */}
+                <h2 style={{ color: cat?.color }}>{cat?.cat}</h2>
+                {/* <button onClick={add}>ADD</button> */}
+                {/* /* <button onClick={write}>WRITE</button>
                 <button onClick={read}>READ</button>
-                <button onClick={remove}>REMOVE</button> */}
+                <button onClick={remove}>REMOVE</button>
             </div>
-        </div>
+            //{' '}
+        </div> */
     );
 }
 

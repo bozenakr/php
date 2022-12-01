@@ -1,8 +1,6 @@
 import './App.scss';
 
 // REACT BASE LIST
-// const dogs = ['šuo', 'šunius', 'Bobikas', 'kudlius', 'Šarikas', 'avigalvis'];
-
 // 1.	Atvaizduoti masyvą dogs. Kiekvienas šuo atskirame kvadrate.
 
 // const dogs = ['šuo', 'šunius', 'Bobikas', 'kudlius', 'Šarikas', 'avigalvis'];
