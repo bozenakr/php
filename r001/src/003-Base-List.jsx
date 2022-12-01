@@ -51,7 +51,7 @@ import './App.scss';
 //                     <div
 //                         className="shape"
 //                         style={{
-//                             borderRadius: (i + 1) % 2 === 0 ? '0' : '50%',
+//                             borderRadius: i % 2 === 0 ? '0' : '50%',
 //                         }}
 //                         key={i}
 //                     >
@@ -68,25 +68,22 @@ import './App.scss';
 // export default App;
 
 //4.	Atvaizduoti masyvą dogs. Šunis, kurie prasideda didžiąja raide praleisti (neatvaizduoti).
-//????????=========Be lietuvisku raidziu=========??????????
 
 // console.clear();
-// const dogs = ['suo', 'sunius', 'Bobikas', 'kudlius', 'Sarikas', 'avigalvis'];
 
-// const dogsBeDidziuju = dogs.filter((what) => what >= 'a' && what <= 'z');
-// console.log(dogsBeDidziuju);
+// const dogs = ['šuo', 'šunius', 'Bobikas', 'kudlius', 'Šarikas', 'avigalvis'];
 
 // function App() {
 //     return (
 //         <div className="App">
 //             <div className="App-header" style={{ flexDirection: 'row' }}>
-//                 {dogsBeDidziuju.map((dog, i) => (
-//                     <div className="shape" style={{}} key={i}>
-//                         {i + 1}
-//                         <br></br>
-//                         {dog}
-//                     </div>
-//                 ))}
+//                 {dogs
+//                     .filter((dog) => dog[0].toUpperCase() !== dog[0])
+//                     .map((dog, i) => (
+//                         <div key={i} className="shape">
+//                             {dog}
+//                         </div>
+//                     ))}
 //             </div>
 //         </div>
 //     );
@@ -96,25 +93,25 @@ import './App.scss';
 
 //5.	Naudojant masyvą dogs atvaizduoti skaičius, kurie yra lygūs žodžių masyve ilgiui. Skaičius, didesnius nei 6 atvaizduoti žaliai, kitus raudonai.
 
-console.clear();
-const dogs = ['suo', 'sunius', 'Bobikas', 'kudlius', 'Sarikas', 'avigalvis'];
-console.log(dogs);
-function App() {
-    return (
-        <div className="App">
-            <div className="App-header" style={{ flexDirection: 'row' }}>
-                {dogs.map((dog, i) => (
-                    <div
-                        className="shape"
-                        style={{ color: dog.length > 6 ? 'green' : 'crimson' }}
-                        key={i}
-                    >
-                        {dog.length}
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
+// console.clear();
+// const dogs = ['šuo', 'šunius', 'Bobikas', 'kudlius', 'Šarikas', 'avigalvis'];
+// console.log(dogs);
+// function App() {
+//     return (
+//         <div className="App">
+//             <div className="App-header" style={{ flexDirection: 'row' }}>
+//                 {dogs.map((dog, i) => (
+//                     <div
+//                         className="shape"
+//                         style={{ color: dog.length > 6 ? 'green' : 'crimson' }}
+//                         key={i}
+//                     >
+//                         {dog.length}
+//                     </div>
+//                 ))}
+//             </div>
+//         </div>
+//     );
+// }
 
-export default App;
+// export default App;
