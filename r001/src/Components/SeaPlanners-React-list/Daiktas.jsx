@@ -1,4 +1,4 @@
-import Bala from './Bala';
+import Bala from '../SeaPlanners-React-list/Bala';
 function Daiktas({ seaPlaners, show }) {
     // let filtered;
 

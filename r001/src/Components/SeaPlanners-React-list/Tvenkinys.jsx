@@ -1,4 +1,4 @@
-import Daiktas from './Daiktas';
+import Daiktas from '../SeaPlanners-React-list/Daiktas';
 
 function Tvenkinys({ seaPlaners }) {
     return (
