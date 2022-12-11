@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.scss';
 import rand from './Functions/rand';
-import randColor from './Functions/randColor'
+import randColor from './Functions/randColor';
 
 //1.	Sukurti aplikaciją, kuri turi mygtuką change ir atvaizduoja apskritimą. Paspaudus mygtuką change apskritimas turi pavirsti į kvadratą, o paspaudus dar kartą vėl pavirsti apskritimu.
 //??????????sukurtos form .circle .square?????????????
@@ -58,19 +58,17 @@ import randColor from './Functions/randColor'
 
 // export default App;
 
-
 //3.	Sukurti aplikaciją, kuri turi mygtukus plus ir minus, bei atvaizduoja skaičių 0. Paspaudus plus mygtuką, skaičius padidėja 1, o paspaudus minus- sumažėja 3
 
 //   function App() {
 //   const [number, setNumber] = useState(0);
-  
-  
+
 //   const plus = () => {
 //     setNumber(c => c + 1);
 //   }
 
 //   const minus = () => {
-//     setNumber(c => c - 3);    
+//     setNumber(c => c - 3);
 //   }
 
 //   return (
@@ -92,10 +90,9 @@ import randColor from './Functions/randColor'
 
 //   function App() {
 //   const [sq, setSq] = useState([]);
-  
-  
+
 //     const add = () => {
-//         setSq(s => [...s, 
+//         setSq(s => [...s,
 //             {
 //             color: 'blue'
 //             }
@@ -120,10 +117,9 @@ import randColor from './Functions/randColor'
 
 //   function App() {
 //   const [sq, setSq] = useState([]);
-  
-  
+
 //     const addRed = () => {
-//         setSq(s => [...s, 
+//         setSq(s => [...s,
 //             {
 //             color: 'crimson'
 //             }]);
@@ -138,7 +134,6 @@ import randColor from './Functions/randColor'
 //     const reset = () => {
 //       setSq(s => [])
 //     }
-
 
 //     return (
 //         <div className="App">
@@ -159,9 +154,8 @@ import randColor from './Functions/randColor'
 
 // export default App;
 
-//6. test 
+//6. test - uzduotis
 // paspaudi viena mygtuka vertikalus - paspaudi antra mygtuka horizontalus
-
 
 // function App() {
 
@@ -178,7 +172,7 @@ import randColor from './Functions/randColor'
 //                 <button onClick={() => setRo(false)} style={{transform: 'rotate(90deg)'}}>GO</button>
 //                 </div>
 //             </div>
-            
+
 //         </div>
 //     );
 // }

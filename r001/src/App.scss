@@ -1,6 +1,7 @@
 @import './buttons.scss';
 
 ///mano start
+
 .square {
   height: 150px;
   width: 150px;
@@ -36,6 +37,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+}
+
+.pagaliukas {
+  height: 100px;
+  width: 5px;
+  background-color: #61dafb;
+  margin-bottom: 120px;
+  margin-right: 10px;
 }
 //mano end
 
