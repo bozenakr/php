@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link rel="stylesheet" href="./css/ciklai.css">
+    <link rel="stylesheet" href="./css/ciklai.css">
 </head>
 <body>
     
@@ -108,11 +108,11 @@ foreach (range(1, rand(3000, 4000)) as $nr) {
 echo '<br>';
 echo '<br>';
 //RTRIM funkcija pvz
-$string = "This is test string..";
+$string = "This is test string123";
 echo $string . "\n";
 // rtrim function
 echo '<br>';
-echo rtrim($string, ".");
+echo rtrim($string, "3");
 echo "\n";
 echo '<br>';
 echo '<br>';
@@ -348,14 +348,13 @@ do {
    echo "Random mazas smugis ilgis $mazasSmugis";
    echo "<br>";
    $smugiaiIlgis = $smugiaiIlgis + $mazasSmugis;
-      echo "<br>";
    echo "Smugiu ilgiu suma $smugiaiIlgis";
    echo '<br>';
 }
-while($smugiaiIlgis <= $viniesIlgis * 5); //85*5 = 425mm
+while($smugiaiIlgis <= $viniesIlgis * 1); //85*5 = 425mm
 echo "<br>";
 
-echo "<span style='color: crimson; font-size: 20px; font-weight: bold'>Kiek reikia smugiu $kiekSmugiu</span>";
+echo "<span style='color: crimson; font-size: 20px; font-weight: bold'>Kiek reikia mazu smugiu $kiekSmugiu</span>";//pirmo smugio nr - index 0
 echo '<br>';
 echo '<br>';
 
@@ -367,21 +366,25 @@ $viniesIlgis = 85;//mm
 $smugiaiIlgis = 0;
 $kiekSmugiu = 0;
 do {
-   $mazasSmugis = rand(20,30);//mm
+    if(rand(0,1) === 0) {
+        $didelisSmugis = 0;
+    } else {
+            $didelisSmugis = rand(20,30);//mm
+        }
+    echo "<br>";
+    echo "Smugio nr $kiekSmugiu";
+    $kiekSmugiu++;
+    echo "<br>";
+    $smugiaiIlgis = $smugiaiIlgis + $didelisSmugis;
+   echo "Random didelis smugis ilgis $didelisSmugis";
    echo "<br>";
-   echo "Smugio nr $kiekSmugiu";
-   $kiekSmugiu++;
-   echo "<br>";
-   echo "Random mazas smugis ilgis $mazasSmugis";
-   echo "<br>";
-   $smugiaiIlgis = $smugiaiIlgis + $mazasSmugis;
    echo "Smugiu ilgiu suma $smugiaiIlgis";
    echo '<br>';
 }
-while($smugiaiIlgis <= $viniesIlgis * 5); //85*5 = 425mm
+while($smugiaiIlgis <= $viniesIlgis * 1); //85*5 = 425mm
 echo "<br>";
 
-echo "<span style='color: crimson; font-size: 20px; font-weight: bold'>Kiek reikia smugiu $kiekSmugiu</span>";
+echo "<span style='color: crimson; font-size: 20px; font-weight: bold'>Kiek reikia dideliu smugiu $kiekSmugiu</span>";//pirmo smugio nr - index 0
 echo '<br>';
 echo '<br>';
 
