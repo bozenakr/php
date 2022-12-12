@@ -6,14 +6,13 @@ echo '<br>';
 // <!-- 1.	Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
 echo '=====1=====';
 echo '<br>';
-echo '<br>';
 
 echo '<pre>';
 // print_r(range(0,29));
 // echo '<br>';
 
-foreach (range(0,29) as $el){
-$masyvas[$el] = rand(5,25);
+foreach (range(0,7) as $value) {
+$masyvas[$value] = rand(5,25);
 }
 
 print_r ($masyvas);
@@ -45,6 +44,7 @@ echo '<br>';
 foreach ($masyvas as $index => $value){
  $maxValue = max($masyvas);
 }
+echo '<br>';
 echo "max value $maxValue";
 
 echo '<br>';
@@ -58,11 +58,66 @@ echo '<br>';
 echo '=====2c=====';
 echo '<br>';
 echo '<br>';
-
+$lyginiuIndexSuma = 0;
+foreach ($masyvas as $index => $value) {
+    if($index % 2 === 0) {
+        $lyginiuIndexSuma = $lyginiuIndexSuma + $value;
+    }
+}
+echo $lyginiuIndexSuma;
+echo '<br>';
+echo '<br>';
 // d)	Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
+echo '=====2d=====';
+echo '<br>';
+echo '<br>';
+// $naujasMasyvas = [];
+
+foreach ($masyvas as $index => $value) {
+  $naujasMasyvas[] = ($value - $index);
+}
+
+print_r($naujasMasyvas);
+
+echo '<br>';
+echo '<br>';
+
 // e)	Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
+echo '=====2e=====';
+echo '<br>';
+echo '<br>';
+//pridedu 3 elemenetus!
+foreach (range(1,3) as $_) {
+    $masyvas[] = rand(5,25);
+}
+
+print_r ($masyvas);
+echo '<br>';
+echo '<br>';
+
 // f)	Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
+echo '=====2f=====';
+echo '<br>';
+echo '<br>';
+
+$rez = [];
+foreach($masyvas as $index => $value) {
+    $rez[$index % 2][] = $value;
+}
+
+print_r ($rez);
+echo '<br>';
+echo '<br>';
+
 // g)	Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+echo '=====2g=====';
+echo '<br>';
+echo '<br>';
+
+foreach ($masyvas as &$value) {
+    $value = $value > 15 ? 0 : $value;
+}
+print_r ($masyvas);
 // h)	Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
 // i)	Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą;
 

@@ -308,7 +308,7 @@ echo '<br>';
             echo "&nbsp;&nbsp;";
         }
         // printing star
-    for ($k = 0; $k < $i * 2 - 1; $k++) {
+        for ($k = 0; $k < $i * 2 - 1; $k++) {
         echo '<span style="color: #' . dechex(rand(0,16777215)) . ';">*</span>';
         }
         echo "<br>";
