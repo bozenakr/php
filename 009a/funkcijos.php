@@ -57,8 +57,6 @@ echo '<br>';
 echo isKiekSveikuju(75);
 echo '<br>';
 echo isKiekSveikuju(55);
-// echo isKiekSveikuju(16);
-// echo isKiekSveikuju(16);
 echo '<br>';
 echo '<br>';
 
@@ -71,7 +69,7 @@ foreach (range(0,4) as $value) {
 $masyvas100[$value] = rand(33,77);
 }
 
-echo 'is kiek sveikuju sk. dalijasi masyvo elementai:';
+echo 'Masyvo elementu dalikliai be liekanos:';
 echo '<br>';
 echo isKiekSveikuju($masyvas100[0]);
 echo '<br>';
@@ -117,9 +115,9 @@ $masyvas100[$value] = rand(333,777);
 // }
 
 
-
-
 // 7.	Sugeneruokite atsitiktinio (nuo 10 iki 20) ilgio masyvą, kurio visi, išskyrus paskutinį, elementai yra atsitiktiniai skaičiai nuo 0 iki 10, o paskutinis masyvas, kuris generuojamas pagal tokią pat salygą kaip ir pirmasis masyvas. Viską pakartokite atsitiktinį nuo 10 iki 30  kiekį kartų. Paskutinio masyvo paskutinis elementas yra lygus 0;
+
+
 // 8.	Suskaičiuokite septinto uždavinio elementų, kurie nėra masyvai, sumą. Skaičiuoti reikia visuose masyvuose ir submasyvuose.
 // 9.	Sugeneruokite masyvą iš trijų elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 33. Jeigu tarp trijų paskutinių elementų yra nors vienas ne pirminis skaičius, prie masyvo pridėkite dar vieną elementą- atsitiktinį skaičių nuo 1 iki 33. Vėl patikrinkite pradinę sąlygą ir jeigu reikia pridėkite dar vieną elementą. Kartokite, kol sąlyga nereikalaus pridėti elemento. 
 // 10.	Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių) pirminių skaičių vidurkis mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį) ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite. 
