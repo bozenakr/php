@@ -158,7 +158,7 @@ echo '<br>';
 //rekursija
 $masyvasRekursija = [];
 function generateArray(int $kartojimai, int $count = 0) : array {
-   $array = range(0, rand(10,20));
+   $array = range(0, rand(1,10));
    for ($i=0; $i<count($array); $i++) {
       if ($i === count($array) - 1) {
          if ($count < $kartojimai) {
