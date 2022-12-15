@@ -11,7 +11,7 @@ echo '<pre>';
 
   function tekstas (string $text) : string
    {
-      return "<h1>$text</h1>";
+      return '<h1 style="display: inline;">$text</h1>';
    }
   
 echo tekstas('Labas');
@@ -24,10 +24,10 @@ echo '<br>';
 
 function duArgumentai (string $text, int $number)
    {
-    return "<h1>$text</h1>$number";
+    return "<h$number>$text</h$number>";
    }
   
-echo duArgumentai('Labas', 1);
+echo duArgumentai('Labas', 3);
 echo '<br>';
 echo '<br>';
 
@@ -53,9 +53,9 @@ function isKiekSveikuju (int $x) {
 }
 echo "is kiek sveikuju sk. dalijasi x be liekanos";
 echo '<br>';
-echo isKiekSveikuju(8);
+echo isKiekSveikuju(573);
 echo '<br>';
-echo isKiekSveikuju(75);
+echo isKiekSveikuju(8);
 echo '<br>';
 echo isKiekSveikuju(256);
 echo '<br>';
