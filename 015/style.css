@@ -3,4 +3,15 @@
     width: 100px;
     border: 4px dotted aqua;
     margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+button {
+    margin-top: 10px;
+    background-color: rgb(161, 220, 241);
+    border: 1px solid grey;
+    padding: 0.5em 1em;
 }

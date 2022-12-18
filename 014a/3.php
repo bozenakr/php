@@ -1,8 +1,16 @@
 <?php
 // 3.	Perdarykite 2 uždavinį taip, kad spalvą būtų galimą įrašyti į laukelį ir ją išsiųsti mygtuku GET metodu formoje.
 
-$color = $_GET['color'] ?? '222222';
+// $color = $_GET['color'] ?? '222222';
 //mano default color 222222
+
+  if (preg_match('/^[0-9a-f]{6}/', $_GET['color'] ?? '')) {
+    $color = '#'.$_GET['color'];
+  } else {
+    echo "<h1>bad color code</h1>";
+    die;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -15,18 +23,17 @@ $color = $_GET['color'] ?? '222222';
     <title>Document</title>
 </head>
 
-<body style="background-color: #<?= $color ?>">
+<body style="background-color: <?= $color ?? '' ?>">
 
 <?php
 
-echo '<pre>';
-// print_r($_GET);
+// echo '<pre>';
 
 ?>
 
-<a href="http://localhost/php/014a/3.php">RESET</a>
+<a href="http://localhost/php/014a/3.php?color=222222">RESET</a>
 
-<form action="http://localhost/php/014a/3.php">
+<form action="http://localhost/php/014a/3.php" method="get">
     <input type="text" name="color">
     <button type="submit">GO</button>
 </form>

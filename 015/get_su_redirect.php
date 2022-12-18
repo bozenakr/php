@@ -1,22 +1,22 @@
 <?php
-// # niekada neduodam i url, nes tai kas yra po # nekeliauja i serveri
 
 define('COLORS', [
     'pink',
     'crimson',
     'skyblue',
-    'yellow',
-    'green'
+    'green',
+    'yellow'
 ]);
 
 if (preg_match('/^[0-9a-f]{6}/', $_GET['color'] ?? '')) {
     $color = '#'.$_GET['color'];
-    $error = 0;
 } elseif(in_array($_GET['color'] ?? '', COLORS)) {
-$color = $_GET['color'];
-$error = 0;
+    $color = $_GET['color'];
 } else {
-    $error = 1;
+    header('Location: http://localhost/php/015/error.php');
+    // header('Location: http://localhost/php/015/get_su_redirect.php?color=crimson');
+    die;
+    //butinai die - ir nieko neprintint/neechoint pries headeri
 }
 
 ?>
@@ -32,19 +32,13 @@ $error = 0;
 </head>
 <body>
 
-    <!-- OK -->
-    <?php if(!$error) : ?>
     <div class="sq" style="background: <?= $color ?>;">
         <?= $color ?>
     </div>
-    <!-- ERROR -->
-    <?php else : ?>
-        <h2>Bad color code</h2>
-    <?php endif ?>
 
-    <form action="http://localhost/php/015/get.php" method="get">
+    <form action="http://localhost/php/015/get_su_redirect.php" method="get">
         <input type="text" name="color">
-        <button type="submit">GO</button>
+        <button type="submit">GO!</button>
     </form>
 </body>
-</html> 
+</html>

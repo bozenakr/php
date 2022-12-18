@@ -1,3 +1,10 @@
 form > input {
     margin-bottom: 5px;
 }
+
+button {
+    margin-top: 10px;
+    background-color: rgb(161, 220, 241);
+    border: 1px solid grey;
+    padding: 0.5em 1em;
+}
