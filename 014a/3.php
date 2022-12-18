@@ -1,5 +1,5 @@
 <?php
-// 2.	Sukurti puslapį panašų į 1 uždavinį, tiktai antro linko su perduodamu kintamuoju nedarykite, o vietoj to padarykite, URL eilutėje ranka įvedus GET kintamąjį color su RGB spalvos kodu (pvz color=ff1234) puslapio fono spalva pasidarytų tokios spalvos.
+// 3.	Perdarykite 2 uždavinį taip, kad spalvą būtų galimą įrašyti į laukelį ir ją išsiųsti mygtuku GET metodu formoje.
 
 $color = $_GET['color'] ?? '222222';
 //mano default color 222222
@@ -11,6 +11,7 @@ $color = $_GET['color'] ?? '222222';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
@@ -23,7 +24,12 @@ echo '<pre>';
 
 ?>
 
-<a href="http://localhost/php/014a/2.php">RESET</a>
+<a href="http://localhost/php/014a/3.php">RESET</a>
+
+<form action="http://localhost/php/014a/3.php">
+    <input type="text" name="color">
+    <button type="submit">GO</button>
+</form>
 
 </body>
 </html>

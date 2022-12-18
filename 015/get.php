@@ -1,8 +1,10 @@
 <?php
 
 $color = $_GET['color'] ?? 'ffffff';
-?>
+//ffffff mano default, jei neivedam spalvos tai bus ffffff
+// # niekad neduodam i url, nes tai kas yra po # nekeliauja i serveri
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,4 +17,4 @@ $color = $_GET['color'] ?? 'ffffff';
 <body>
     <div class="sq" style="background: #<?= $color ?>;"></div>
 </body>
-</html>
+</html> 
