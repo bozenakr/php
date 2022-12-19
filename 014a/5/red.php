@@ -1,3 +1,11 @@
+<?php
+if (isset($_GET['go'] )) {
+    header('Location:http://localhost/php/014a/5/blue.php');
+    die;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +17,7 @@
 
 <body style="background-color: crimson">
   
-<a href="http://localhost/php/014a/5/blue.php">RED</a>
+<a href="http://localhost/php/014a/5/red.php?go">RED</a>
 
 </body>
 </html>

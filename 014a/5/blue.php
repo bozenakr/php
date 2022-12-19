@@ -1,5 +1,13 @@
 <!-- 
 // 5.	Sukurkite du atskirus puslapius blue.php ir red.php Juose sukurkite linkus į pačius save (abu į save ne į kitą puslapį!). Padarykite taip, kad paspaudus ant  linko puslapis ne tiesiog persikrautų, o PHP kodas (ne tiesiogiai html tagas!) naršyklę peradresuotų į kitą puslapį (iš raudono į mėlyną ir atvirkščiai). -->
+<?php
+if (isset($_GET['go'] )) {
+    header('Location:http://localhost/php/014a/5/red.php');
+    die;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +19,7 @@
 
 <body style="background-color: skyblue">
   
-<a href="http://localhost/php/014a/5/red.php">BLUE</a>
+<a href="http://localhost/php/014a/5/blue.php?go">BLUE</a>
 
 </body>
 </html>

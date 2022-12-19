@@ -3,8 +3,10 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $backgroundColor = 'yellow';
-}  else {
+} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $backgroundColor = 'green';
+} else {
+    $backgroundColor = 'white';
 }
 
 ?>
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body style="background-color: <?= $backgroundColor ?>">
     <div>
         <form action="http://localhost/php/014a/6.php" method="get">
-                <button tyle="submit">get - green</button>
+                <button type="submit">get - green</button>
             </form>
         <form action="http://localhost/php/014a/6.php" method="post">
                 <button type="submit">post - yellow</button>

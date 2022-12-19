@@ -3,10 +3,8 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $backgroundColor = 'yellow';
-    // header('Location: http://localhost/php/014a/7.php');????
-    // die;
-}  else {
-    $backgroundColor = 'green';
+    header('Location: http://localhost/php/014a/7.php?color=yellow');
+    die;
 }
 
 ?>
@@ -20,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
     <title>6</title>
 </head>
-<body style="background-color: <?= $backgroundColor ?>">
+<body style="background-color: <?= $_GET['color'] ?? '' ?>">
     <div>
         <form action="http://localhost/php/014a/7.php" method="get">
-                <button tyle="submit">get - green</button>
+                <button type="submit"> <a href="http://localhost/php/014a/7.php?color=green">get - green</a></button>
             </form>
         <form action="http://localhost/php/014a/7.php" method="post">
                 <button type="submit">post - yellow</button>
