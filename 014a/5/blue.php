@@ -19,7 +19,8 @@ if (isset($_GET['go'] )) {
 
 <body style="background-color: skyblue">
   
-<a href="http://localhost/php/014a/5/blue.php?go">BLUE</a>
+<h1><a href="http://localhost/php/014a/5/blue.php?go">GO RED</a></h1>
 
 </body>
 </html>
+

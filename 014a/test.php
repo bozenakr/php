@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <form action="http://localhost/php/014a/test.php" method="post">
-        <button type="submit" name= "x" value= <?= $skaiciai ?> >GO</button>
+        <button type="submit" name="x" value=<?= $skaiciai ?>>GO</button>
         <!-- <li></li> -->
     </form>
 
