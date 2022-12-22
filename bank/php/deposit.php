@@ -15,4 +15,5 @@ foreach ($users as $index => $user) {
 
 file_put_contents(__DIR__ . '/data', serialize($users));
 
-header('Location: http://localhost/php/bank/php/');
+
+header('Location: http://localhost/php/bank/php/accounts.php');
