@@ -35,7 +35,7 @@ require __DIR__ . './header.php';
         <li>
             <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Sąskaitos likutis: <?= $user['balance'] ?> </span>
             <form action="http://localhost/php/bank/php/deposit.php?id=<?= $user['id'] ?>" method="post">
-                <input type="text" name="balance">
+                <input type="text" name="naujaSuma">
                 <button type="submit">Deposit</button>
             </form>
         </li>

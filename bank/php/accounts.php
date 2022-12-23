@@ -3,19 +3,20 @@ print_r($_SERVER['REQUEST_METHOD']);
 
 $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 
-require __DIR__ . './header.php';
 
 if (isset($_GET['success'])) {
     $success = 'Operacija sekminga';
 }
 
-if (isset($_GET['errorAccount'])) {
-    $errorAccount = 'Nauja saskaita prideta';
+if (isset($_GET['errorDeleteAccount'])) {
+    $errorDeleteAccount = 'Negalima istrinti, saskaitoje yra lesu';
 }
 
-if (isset($_GET['successAccount'])) {
-    $successAccount = 'Negalima istrinti, saskaitoje yra lesu.';
+if (isset($_GET['successDeleteAccount'])) {
+    $successDeleteAccount = 'Saskaita istrinta sekmingai';
 }
+
+require __DIR__ . './header.php';
 
 ?>
 
@@ -47,6 +48,8 @@ if (isset($_GET['successAccount'])) {
         </li>
         <?php endforeach ?>
     </ul>
+
+    <!-- Sekminga operacija istrinti prideti lesas -->
     <?php if (isset($success)) : ?>
     <div class="hide">
         <span class="alert alert-success" role="alert">
@@ -54,20 +57,25 @@ if (isset($_GET['successAccount'])) {
         </span>
     </div>
     <?php endif ?>
-    <?php if (isset($successAccount)) : ?>
+
+    <!-- Sekminga operacija istrinti saskaita -->
+    <?php if (isset($successDeleteAccount)) : ?>
     <div class="hide">
         <span class="alert alert-success" role="alert">
-            <?= $successAccount ?>
+            <?= $successDeleteAccount ?>
         </span>
     </div>
     <?php endif ?>
-    <?php if (isset($errorAccount)) : ?>
+
+    <!-- Error istrinti saskaita -->
+    <?php if (isset($errorDeleteAccount)) : ?>
     <div class="hide">
-        <span class="alert alert-error" role="alert">
-            <?= $errorAccount ?>
+        <span class="alert alert-danger" role="alert">
+            <?= $errorDeleteAccount ?>
         </span>
     </div>
     <?php endif ?>
+
     <form action="http://localhost/php/bank/php/seeder.php" method="post">
         <button type="submit">seeder</button>
     </form>

@@ -16,11 +16,14 @@ foreach ($arrUsers as $index => $user) {
     if ($user['id'] ==  $id) {
         if($user['balance'] == 0) {
             unset($arrUsers[$index]);
+            file_put_contents(__DIR__ . '/data', serialize($arrUsers));
+            header('Location: http://localhost/php/bank/php/accounts.php?successDeleteAccount');
             break;
-        }
+        } else {
+        } header('Location: http://localhost/php/bank/php/accounts.php?errorDeleteAccount');
+            die;
     }
 }
 
-file_put_contents(__DIR__ . '/data', serialize($arrUsers));
 
-header('Location: http://localhost/php/bank/php/accounts.php');
+// header('Location: http://localhost/php/bank/php/accounts.php');

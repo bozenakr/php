@@ -1,26 +1,24 @@
 <?php 
 print_r($_SERVER['REQUEST_METHOD']);
 
-
 if (!file_exists(__DIR__ . '/data')) {
-  $arr = [];
+  $arrUsers = [];
 } else {
-  $arr = unserialize(file_get_contents(__DIR__ . '/data'));
+  $arrUSers = unserialize(file_get_contents(__DIR__ . '/data'));
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = rand(1000000, 10000000);
     $name = $_POST['name'];
     $surname = $_POST['surname'];
-// LT 2 sk. kontroliniai 5sk. banko kodas 35000 11sk. random
+    // LT -> 2 sk. kontroliniai -> 5sk. -> banko kodas 35000 -> 11sk. random
     $iban = 'LT' . rand(40,60) . 35000 . rand(10000000000,99999999999);
     $ak = $_POST['ak'];
     $balance = 0;
-    $arr[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
-
-print_r($_POST);
-
-    file_put_contents(__DIR__ .'/data', serialize($arr));
+    
+    $arrUsers[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
+    
+    file_put_contents(__DIR__ .'/data', serialize($arrUSers));
     header('Location: http://localhost/php/bank/php/accounts.php');
     die;
 }
@@ -47,18 +45,25 @@ require __DIR__ . './header.php';
     <div>
         <form action="http://localhost/php/bank/php/new_account.php" method="post">
             <div>
-                <label>Name</label>
-                <input type="text" name="name" placeholder="Name" required>
+                <label>Vardas</label>
+                <input type="text" name="name" required>
             </div>
             <div>
-                <label>Surname</label>
-                <input type="text" name="surname" class="" placeholder="Surname" required>
+                <label>Pavardė</label>
+                <input type="text" name="surname" class="" required>
             </div>
             <div>
                 <label>Asmens kodas</label>
-                <input type="text" name="ak" class="" placeholder="Asmens kodas" required>
+                <input type="text" name="ak" class="" required>
             </div>
-            <button type="submit" class="">Create</button>
+
+            <!-- read only??iban vel random
+            <div>
+                <label>Sąskaitos numeris (IBAN)</label>
+                <input readonly name="iban" class="" value=$iban???error
+            </div> -->
+
+            <button type="submit" class="">Sukurti</button>
         </form>
     </div>
 </body>

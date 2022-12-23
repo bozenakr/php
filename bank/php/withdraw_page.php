@@ -10,7 +10,7 @@ foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) {
 }
 
 if (isset($_GET['error'])) {
-    $error = 'Nepakankamas sąskaitos likutis';
+    $error = 'Klaida:<br>Nepakankamas sąskaitos likutis<br>arba<br>ivedamas minusinis skaicius arba neskaicius';
 }
 
 require __DIR__ . './header.php';
@@ -33,7 +33,7 @@ require __DIR__ . './header.php';
         <li>
             <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Sąskaitos likutis: <?= $user['balance'] ?> </span>
             <form action="http://localhost/php/bank/php/withdraw.php?id=<?= $user['id'] ?>" method="post">
-                <input type="text" name="balance">
+                <input type="text" name="naujaSuma">
                 <button type="submit">Withdraw</button>
             </form>
         </li>
