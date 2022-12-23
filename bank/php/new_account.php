@@ -8,6 +8,10 @@ if (!file_exists(__DIR__ . '/data')) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (strlen($_POST['name']) < 4 || strlen($_POST['surname']) < 4) {
+        header('Location: http://localhost/php/bank/php/new_account.php?errorVardasPavarde');
+        die;
+    } else {
     $id = rand(1000000, 10000000);
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -17,9 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $balance = 0;
     $arrUsers[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
     file_put_contents(__DIR__ .'/data', serialize($arrUsers));
-    header('Location: http://localhost/php/bank/php/accounts.php');
-    die;
+        header('Location: http://localhost/php/bank/php/accounts.php');
+        die;
+    }
 }
+
+
+if (isset($_GET['errorVardasPavarde'])) {
+    $errorVardasPavarde = 'Vardas ir pavardė turi būti ilgesni nei 3 simboliai';
+}
+
 
 require __DIR__ . './header.php';
 
@@ -64,6 +75,12 @@ require __DIR__ . './header.php';
             <button type="submit" class="">Sukurti</button>
         </form>
     </div>
+    <?php if (isset($errorVardasPavarde)) : ?>
+    <div class="alert alert-danger" role="alert">
+        <?= $errorVardasPavarde ?>
+    </div>
+    <?php endif ?>
+
 </body>
 
 </html>
