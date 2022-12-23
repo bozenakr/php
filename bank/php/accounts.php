@@ -21,6 +21,10 @@ if (isset($_GET['successDeleteAccount'])) {
     $successDeleteAccount = 'Saskaita istrinta sekmingai';
 }
 
+if (isset($_GET['successAddAccount'])) {
+    $successAddAccount = 'Saskaita sukurta sekmingai';
+}
+
 require __DIR__ . './header.php';
 
 ?>
@@ -77,6 +81,15 @@ require __DIR__ . './header.php';
     <div class="hide">
         <span class="alert alert-danger" role="alert">
             <?= $errorDeleteAccount ?>
+        </span>
+    </div>
+    <?php endif ?>
+
+    <!-- Success sukurti saskaita -->
+    <?php if (isset($successAddAccount)) : ?>
+    <div class="hide">
+        <span class="alert alert-success" role="alert">
+            <?= $successAddAccount ?>
         </span>
     </div>
     <?php endif ?>
