@@ -4,7 +4,7 @@ print_r($_SERVER['REQUEST_METHOD']);
 if (!file_exists(__DIR__ . '/data')) {
   $arrUsers = [];
 } else {
-  $arrUSers = unserialize(file_get_contents(__DIR__ . '/data'));
+  $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ak = $_POST['ak'];
     $balance = 0;
     $arrUsers[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
-    file_put_contents(__DIR__ .'/data', serialize($arrUSers));
+    file_put_contents(__DIR__ .'/data', serialize($arrUsers));
     header('Location: http://localhost/php/bank/php/accounts.php');
     die;
 }

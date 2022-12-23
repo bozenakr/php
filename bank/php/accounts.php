@@ -1,8 +1,11 @@
 <?php
 print_r($_SERVER['REQUEST_METHOD']);
 
-$arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
-
+if (!file_exists(__DIR__ . '/data')) {
+  $arrUsers = [];
+} else {
+  $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
+}
 
 usort($arrUsers, fn ($x, $y) => $x['surname'] <=> $y['surname']);
 
