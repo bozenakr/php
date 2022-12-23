@@ -68,11 +68,38 @@
     color: #34383c;
 }
 
+/* SUCCESS */
 .alert-success {
     --bs-alert-color: #0f5132;
     --bs-alert-bg: #d1e7dd;
     --bs-alert-border-color: #badbcc;
 }
+
+/* mano */
+
+.hide {
+    -webkit-animation: seconds 1s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 1s;
+    animation: seconds 1s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+}
+@-webkit-keyframes seconds {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+@keyframes seconds {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
 .alert-success .alert-link {
     color: #0c4128;
 }

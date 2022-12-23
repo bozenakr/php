@@ -1,8 +1,21 @@
 <?php
+print_r($_SERVER['REQUEST_METHOD']);
+
+$arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 
 require __DIR__ . './header.php';
-$arr = unserialize(file_get_contents(__DIR__ . '/data'));
-usort($arr, fn ($x, $y) => $x['name'] <=> $y['surname']);
+
+if (isset($_GET['success'])) {
+    $success = 'Operacija sekminga';
+}
+
+if (isset($_GET['errorAccount'])) {
+    $errorAccount = 'Nauja saskaita prideta';
+}
+
+if (isset($_GET['successAccount'])) {
+    $successAccount = 'Negalima istrinti, saskaitoje yra lesu.';
+}
 
 ?>
 
@@ -19,7 +32,7 @@ usort($arr, fn ($x, $y) => $x['name'] <=> $y['surname']);
 
 <body>
     <ul style="background: skyblue">
-        <?php foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) : ?>
+        <?php foreach ($arrUsers as $user) : ?>
         <li>
             <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Balance: <?= $user['balance'] ?> </span>
             <div>
@@ -34,6 +47,27 @@ usort($arr, fn ($x, $y) => $x['name'] <=> $y['surname']);
         </li>
         <?php endforeach ?>
     </ul>
+    <?php if (isset($success)) : ?>
+    <div class="hide">
+        <span class="alert alert-success" role="alert">
+            <?= $success ?>
+        </span>
+    </div>
+    <?php endif ?>
+    <?php if (isset($successAccount)) : ?>
+    <div class="hide">
+        <span class="alert alert-success" role="alert">
+            <?= $successAccount ?>
+        </span>
+    </div>
+    <?php endif ?>
+    <?php if (isset($errorAccount)) : ?>
+    <div class="hide">
+        <span class="alert alert-error" role="alert">
+            <?= $errorAccount ?>
+        </span>
+    </div>
+    <?php endif ?>
     <form action="http://localhost/php/bank/php/seeder.php" method="post">
         <button type="submit">seeder</button>
     </form>

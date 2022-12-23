@@ -1,4 +1,7 @@
 <?php 
+print_r($_SERVER['REQUEST_METHOD']);
+
+
 if (!file_exists(__DIR__ . '/data')) {
   $arr = [];
 } else {
@@ -9,7 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = rand(1000000, 10000000);
     $name = $_POST['name'];
     $surname = $_POST['surname'];
-    $iban = $_POST['iban'];
+// LT 2 sk. kontroliniai 5sk. banko kodas 35000 11sk. random
+    $iban = 'LT' . rand(40,60) . 35000 . rand(10000000000,99999999999);
     $ak = $_POST['ak'];
     $balance = 0;
     $arr[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
@@ -49,10 +53,6 @@ require __DIR__ . './header.php';
             <div>
                 <label>Surname</label>
                 <input type="text" name="surname" class="" placeholder="Surname" required>
-            </div>
-            <div>
-                <label>Iban</label>
-                <input type="text" name="iban" class="" placeholder="Iban" required>
             </div>
             <div>
                 <label>Asmens kodas</label>

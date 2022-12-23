@@ -1,11 +1,17 @@
-<?php 
+<?php
+
+print_r($_SERVER['REQUEST_METHOD']);
+
 $id = (int) $_GET['id'];
 foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) {
     if ($user['id'] == $id) {
         break;
-}
+    }
 }
 
+if (isset($_GET['error'])) {
+    $error = 'Nepakankamas sąskaitos likutis';
+}
 
 require __DIR__ . './header.php';
 
@@ -25,14 +31,18 @@ require __DIR__ . './header.php';
 <body>
     <ul style="background: skyblue">
         <li>
-            <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Balance: <?= $user['balance'] ?> </span>
+            <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Sąskaitos likutis: <?= $user['balance'] ?> </span>
             <form action="http://localhost/php/bank/php/withdraw.php?id=<?= $user['id'] ?>" method="post">
                 <input type="text" name="balance">
                 <button type="submit">Withdraw</button>
             </form>
         </li>
-
     </ul>
+    <?php if (isset($error)) : ?>
+    <div class="alert alert-danger" role="alert">
+        <?= $error ?>
+    </div>
+    <?php endif ?>
 </body>
 
 </html>

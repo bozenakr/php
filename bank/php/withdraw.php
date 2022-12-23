@@ -1,21 +1,19 @@
 <?php
 
-
-$users = unserialize(file_get_contents(__DIR__ . '/data'));
+$arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 
 $id = (int) $_GET['id'];
 
 
-foreach ($users as $index => $user) {
+foreach ($arrUsers as $index => $user) {
     if ($user['id'] ==  $id) {
-        $users[$index]['balance'] = $users[$index]['balance'] - (int) $_POST['balance']; //suma gaunam is langelio post metodu
-        break;
+      if ($arrUsers[$index]['balance'] < (float) $_POST['balance']) {
+        header ('Location: http://localhost/php/bank/php/withdraw_page.php?id=' . $user['id'] . '&error');//jei error
+      } else {
+            $arrUsers[$index]['balance'] = $arrUsers[$index]['balance'] - (float) $_POST['balance'];
+            file_put_contents(__DIR__ . '/data', serialize($arrUsers));
+            header('Location: http://localhost/php/bank/php/accounts.php?success'); //jei ok
+            break;
+        }
+    }
 }
-}
-
-
-file_put_contents(__DIR__ . '/data', serialize($users));
-
-header('Location: http://localhost/php/bank/php/accounts.php');
-
-//   if ((int) $_POST['balance'] > $users[$index]['balance']) 
