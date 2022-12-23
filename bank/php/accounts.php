@@ -4,6 +4,8 @@ print_r($_SERVER['REQUEST_METHOD']);
 $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 
 
+usort($arrUsers, fn ($x, $y) => $x['surname'] <=> $y['surname']);
+
 if (isset($_GET['success'])) {
     $success = 'Operacija sekminga';
 }

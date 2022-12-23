@@ -15,9 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $iban = 'LT' . rand(40,60) . 35000 . rand(10000000000,99999999999);
     $ak = $_POST['ak'];
     $balance = 0;
-    
     $arrUsers[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
-    
     file_put_contents(__DIR__ .'/data', serialize($arrUSers));
     header('Location: http://localhost/php/bank/php/accounts.php');
     die;
