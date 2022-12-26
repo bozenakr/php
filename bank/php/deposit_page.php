@@ -1,6 +1,6 @@
 <?php 
 
-print_r($_SERVER['REQUEST_METHOD']);
+// print_r($_SERVER['REQUEST_METHOD']);
 
 $id = (int) $_GET['id'];
 foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) {
@@ -11,7 +11,7 @@ foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) {
 
 //error rodomas deposit_page iskart
 if (isset($_GET['error'])) {
-    $error = 'Klaida - prašome įvesti teisingą sumą.<br>Galimos klaidos:<br>Skaicius minusinis,<br>Bandote ivest 0,<br>Bandote ivest ne skaiciu,<br>Kablelis!!';
+    $error = 'Klaida:<br>Prašome įvesti teisingą sumą.';
 }
 
 
@@ -31,20 +31,28 @@ require __DIR__ . './header.php';
 </head>
 
 <body>
-    <ul style="background: skyblue">
-        <li>
-            <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Sąskaitos likutis: <?= $user['balance'] ?> </span>
-            <form action="http://localhost/php/bank/php/deposit.php?id=<?= $user['id'] ?>" method="post">
-                <input type="text" name="naujaSuma">
-                <button type="submit">Deposit</button>
+    <div class="container">
+        <div>
+            <h2 class="main-title">Lėšų pridėjimas</h2>
+        </div>
+        <div class="div-line">
+            <div class="text">
+                <div> <?=$user['name']?> <?=$user['surname']?> <p> Sąskaitos likutis: <?= number_format($user['balance'], 2, '.', '') ?> EUR</p>
+                </div>
+            </div>
+            <div class="form">
+                <form action="http://localhost/php/bank/php/deposit.php?id=<?= $user['id'] ?>" method="post">
+                    <input class="input" type="text" name="naujaSuma">
+                    <button class="btn btn-margin" type="submit">Pridėti</button>
+            </div>
             </form>
-        </li>
-    </ul>
-    <?php if (isset($error)) : ?>
-    <div class="alert alert-danger" role="alert">
-        <?= $error ?>
+        </div>
+        <?php if (isset($error)) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error ?>
+        </div>
+        <?php endif ?>
     </div>
-    <?php endif ?>
 </body>
 
 </html>

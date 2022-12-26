@@ -10,11 +10,15 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="container header">
         <div class="header-menu">
-            <img class="logo" src="../img/bank.logo.png" alt="logo">
-            <a class="header-link" href="http://localhost/php/bank/php/accounts.php">HOME</a>
+            <img class="logo" src="../img/logoIdea.png" alt="logo">
+            <a class="header-link" href="http://localhost/php/bank/php/accounts.php">Home</a>
             <a class="header-link" href="http://localhost/php/bank/php/new_account.php">New account</a>
+        </div>
+        <div class="header-right">
+            <span class="header-user">Sveiki, Briedis!</span>
+            <a class="btn btn-logout" href="">Logout</a>
         </div>
     </header>
 </body>

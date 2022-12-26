@@ -1,5 +1,5 @@
 <?php 
-print_r($_SERVER['REQUEST_METHOD']);
+// print_r($_SERVER['REQUEST_METHOD']);
 
 if (!file_exists(__DIR__ . '/data')) {
   $arrUsers = [];
@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die;
         //asmens kodas -> 11 sk. -> 1sk(1-6) == 6sk. YY MM DD == 3sk. rand tą dieną gimusių asmenų eilės numeris == 1 rand
         //substr('abcdef', 1, 3);  // bcd// 
-        // || $_POST['ak'][0] != range(1,6)??
     } if ((strlen($_POST['ak']) != 11) || !is_numeric($_POST['ak']) || (((int)(substr($_POST['ak'], 5, 2)) > 31) || ((int)(substr($_POST['ak'], 3, 2)) > 12))) {
          header('Location: http://localhost/php/bank/php/new_account.php?errorAK');
          die;
@@ -58,41 +57,46 @@ require __DIR__ . './header.php';
 </head>
 
 <body>
-    <div>
-        Create account
-    </div>
-    <div>
-        <form action="http://localhost/php/bank/php/new_account.php" method="post">
-            <div>
-                <label>Vardas</label>
-                <input type="text" name="name" required>
-            </div>
-            <div>
-                <label>Pavardė</label>
-                <input type="text" name="surname" class="" required>
-            </div>
-            <div>
-                <label>Asmens kodas</label>
-                <input type="text" name="ak" class="" required>
-            </div>
+    <div class="container">
+        <div>
+            <h2 class="main-title">Naujos sąskaitos sukūrimas</h2>
+        </div>
+        <div class="new">
+            <form action="http://localhost/php/bank/php/new_account.php" method="post">
+                <div class="flex div-line">
+                    <label class="label-new">Vardas</label>
+                    <input class="input" type="text" name="name" required>
+                </div>
+                <div class="flex">
+                    <label>Pavardė</label>
+                    <input class="input" type="text" name="surname" class="" required>
+                </div>
+                <div class="flex">
+                    <label>Asmens kodas</label>
+                    <input class="input" type="text" name="ak" class="" required>
+                </div>
+                <div class="flex">
+                    <label>Sąskaitos numeris (IBAN)</label>
+                    <input class="input" readonly name="iban" class="" value="LT<?=  rand(40,60) . 35000 . rand(10000000000,99999999999) ?>">
+                </div>
+                <div class="flex-center">
+                    <button type="submit" class="btn">Sukurti</button>
+                </div>
+            </form>
+        </div>
 
-            <!-- read only??iban vel random
-            <div>
-                <label>Sąskaitos numeris (IBAN)</label>
-                <input readonly name="iban" class="" value=$iban???error
-            </div> -->
-
-            <button type="submit" class="">Sukurti</button>
-        </form>
     </div>
-    <div>
+
+
+    <!-- ERROR -->
+    <div class="new">
         <?php if (isset($errorVardasPavarde)) : ?>
         <div class="alert alert-danger" role="alert">
             <?= $errorVardasPavarde ?>
         </div>
         <?php endif ?>
     </div>
-    <div>
+    <div class="new">
         <?php if (isset($errorAK)) : ?>
         <div class="alert alert-danger" role="alert">
             <?= $errorAK ?>

@@ -1,5 +1,5 @@
 <?php
-print_r($_SERVER['REQUEST_METHOD']);
+// print_r($_SERVER['REQUEST_METHOD']);
 
 if (!file_exists(__DIR__ . '/data')) {
   $arrUsers = [];
@@ -10,19 +10,19 @@ if (!file_exists(__DIR__ . '/data')) {
 usort($arrUsers, fn ($x, $y) => $x['surname'] <=> $y['surname']);
 
 if (isset($_GET['success'])) {
-    $success = 'Operacija sekminga';
+    $success = 'Operacija sėkminga';
 }
 
 if (isset($_GET['errorDeleteAccount'])) {
-    $errorDeleteAccount = 'Negalima istrinti, saskaitoje yra lesu';
+    $errorDeleteAccount = 'Negalima ištrinti, sąskaitoje yra lėšų';
 }
 
 if (isset($_GET['successDeleteAccount'])) {
-    $successDeleteAccount = 'Saskaita istrinta sekmingai';
+    $successDeleteAccount = 'Sąskaita ištrinta sėkmingai';
 }
 
 if (isset($_GET['successAddAccount'])) {
-    $successAddAccount = 'Saskaita sukurta sekmingai';
+    $successAddAccount = 'Sąskaita sukurta sėkmingai';
 }
 
 require __DIR__ . './header.php';
@@ -41,58 +41,75 @@ require __DIR__ . './header.php';
 </head>
 
 <body>
-    <ul style="background: skyblue">
-        <?php foreach ($arrUsers as $user) : ?>
-        <li>
-            <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Balance: <?= $user['balance'] ?> </span>
-            <div>
-                <a href="http://localhost/php/bank/php/deposit_page.php?id=<?= $user['id'] ?>">DEPOSIT</a>
-                <!-- br nenaudot!!!! -->
-                <br>
-                <a href="http://localhost/php/bank/php/withdraw_page.php?id=<?= $user['id'] ?>">WITHDRAW</a>
+    <div class="container">
+        <div>
+            <h2 class="main-title">Sąskaitų sąrašas</h2>
+        </div>
+        <div class="table">
+            <?php foreach ($arrUsers as $user) : ?>
+            <div class="table1">
+                <div class="content">
+                    <div> <?=$user['id']?> </div>
+                    <div style="width: 150px"> <?=$user['name']?> <?=$user['surname']?> </div>
+                    <div> <?=$user['ak']?> </div>
+                    <div> <?=$user['iban']?> </div>
+                    <div> <?= number_format($user['balance'], 2, '.', '') ?> EUR</div>
+                </div>
+                <div class="buttons">
+                    <a class="btn" href="http://localhost/php/bank/php/deposit_page.php?id=<?= $user['id'] ?>">Pridėti</a>
+                    <a class="btn btn-light" href="http://localhost/php/bank/php/withdraw_page.php?id=<?= $user['id'] ?>">Nuskaičiuoti</a>
+                    <form action="http://localhost/php/bank/php/delete_account.php?id=<?= $user['id'] ?>" method="post">
+                        <button class="btn btn-delete" type="submit">Ištrinti sąskaitą</button>
+                    </form>
+                </div>
             </div>
-            <form action="http://localhost/php/bank/php/delete_account.php?id=<?= $user['id'] ?>" method="post">
-                <button type="submit">Delete account</button>
-            </form>
-        </li>
-        <?php endforeach ?>
-    </ul>
+            <?php endforeach ?>
+        </div>
+    </div>
 
     <!-- Sekminga operacija istrinti prideti lesas -->
     <?php if (isset($success)) : ?>
-    <div class="hide">
-        <span class="alert alert-success" role="alert">
-            <?= $success ?>
-        </span>
+    <div class="container">
+        <div class="hide" style="with: 100%">
+            <div class="alert alert-success text-center" role="alert">
+                <?= $success ?>
+            </div>
+        </div>
+        <?php endif ?>
     </div>
-    <?php endif ?>
 
     <!-- Sekminga operacija istrinti saskaita -->
     <?php if (isset($successDeleteAccount)) : ?>
-    <div class="hide">
-        <span class="alert alert-success" role="alert">
-            <?= $successDeleteAccount ?>
-        </span>
+    <div class="container">
+        <div class="hide">
+            <div class="alert alert-success text-center" role="alert">
+                <?= $successDeleteAccount ?>
+            </div>
+        </div>
+        <?php endif ?>
     </div>
-    <?php endif ?>
 
     <!-- Error istrinti saskaita -->
     <?php if (isset($errorDeleteAccount)) : ?>
-    <div class="hide">
-        <span class="alert alert-danger" role="alert">
-            <?= $errorDeleteAccount ?>
-        </span>
+    <div class="container">
+        <div class="hide">
+            <div class="alert alert-danger text-center" role="alert">
+                <?= $errorDeleteAccount ?>
+            </div>
+        </div>
+        <?php endif ?>
     </div>
-    <?php endif ?>
 
     <!-- Success sukurti saskaita -->
     <?php if (isset($successAddAccount)) : ?>
-    <div class="hide">
-        <span class="alert alert-success" role="alert">
-            <?= $successAddAccount ?>
-        </span>
+    <div class="container">
+        <div class="hide">
+            <div class="alert alert-success text-center" role="alert">
+                <?= $successAddAccount ?>
+            </div>
+        </div>
+        <?php endif ?>
     </div>
-    <?php endif ?>
 
     <form action="http://localhost/php/bank/php/seeder.php" method="post">
         <button type="submit">seeder</button>

@@ -1,6 +1,6 @@
 <?php
 
-print_r($_SERVER['REQUEST_METHOD']);
+// print_r($_SERVER['REQUEST_METHOD']);
 
 $id = (int) $_GET['id'];
 foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) {
@@ -10,7 +10,7 @@ foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) {
 }
 
 if (isset($_GET['error'])) {
-    $error = 'Klaida:<br>Nepakankamas sąskaitos likutis<br>arba<br>ivedamas minusinis skaicius arba neskaicius';
+    $error = 'Klaida:<br>Nepakankamas sąskaitos likutis arba klaidinga suma.';
 }
 
 require __DIR__ . './header.php';
@@ -29,6 +29,43 @@ require __DIR__ . './header.php';
 </head>
 
 <body>
+    <div class="container">
+        <div>
+            <h2 class="main-title">Lėšų nuskaičiavimas </h2>
+        </div>
+        <div class="div-line">
+            <div class="text">
+                <div> <?=$user['name']?> <?=$user['surname']?> <p> Sąskaitos likutis: <?= number_format($user['balance'], 2, '.', '') ?> EUR</p>
+                </div>
+            </div>
+            <div class="form">
+                <form action="http://localhost/php/bank/php/withdraw.php?id=<?= $user['id'] ?>" method="post">
+                    <input class="input" type="text" name="naujaSuma">
+                    <button class="btn btn-light btn-margin" type="submit">Nuskaičiuoti</button>
+            </div>
+            </form>
+        </div>
+        <?php if (isset($error)) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error ?>
+        </div>
+        <?php endif ?>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
     <ul style="background: skyblue">
         <li>
             <span> <?=$user['id']?> <?=$user['iban']?> <?=$user['name']?> <?=$user['surname']?> <?=$user['ak']?> Sąskaitos likutis: <?= $user['balance'] ?> </span>
@@ -45,4 +82,4 @@ require __DIR__ . './header.php';
     <?php endif ?>
 </body>
 
-</html>
+</html> -->
