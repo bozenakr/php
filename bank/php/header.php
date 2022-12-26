@@ -10,15 +10,19 @@
 </head>
 
 <body>
-    <header class="container header">
-        <div class="header-menu">
-            <img class="logo" src="../img/logoIdea.png" alt="logo">
-            <a class="header-link" href="http://localhost/php/bank/php/accounts.php">Home</a>
-            <a class="header-link" href="http://localhost/php/bank/php/new_account.php">New account</a>
-        </div>
-        <div class="header-right">
-            <span class="header-user">Sveiki, Briedis!</span>
-            <a class="btn btn-logout" href="">Logout</a>
+    <header>
+        <div class="container header">
+            <div class="header-menu">
+                <img class="logo" src="../img/logoIdea.png" alt="logo">
+                <a class="header-link" href="http://localhost/php/bank/php/accounts.php">Home</a>
+                <a class="header-link" href="http://localhost/php/bank/php/new_account.php">New account</a>
+            </div>
+            <div class="header-right">
+                <div class="header-user">Sveiki, <?= $_SESSION['user']['name'] ?>! </div>
+                <form action="http://localhost/php/bank/php/login.php?logout ?>" method="post">
+                    <button class="btn btn-logout" type="submit">Logout</button>
+                </form>
+            </div>
         </div>
     </header>
 </body>

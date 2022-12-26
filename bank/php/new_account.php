@@ -1,6 +1,14 @@
 <?php 
 // print_r($_SERVER['REQUEST_METHOD']);
 
+session_start();
+
+//tikrinam dar karta ar yra pasetintas useris
+if(!isset($_SESSION['user'])) {
+header('Location: http://localhost/php/bank/php/login.php');
+die;
+}
+
 if (!file_exists(__DIR__ . '/data')) {
   $arrUsers = [];
 } else {

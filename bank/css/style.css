@@ -46,18 +46,13 @@ body {
     margin-left: calc((100% - 95%) / 2);
 }
 
-/* =================== */
-/* .bg {
-    background: url('../img/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-} */
-
 /* HEADER start */
 
-.header {
+header {
     background: var(--blue-bg);
+}
+
+.header {
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -87,6 +82,9 @@ body {
     color: var(--white);
 }
 
+.header-right {
+    display: flex;
+}
 .header-user {
     margin-left: 20px;
     line-height: 2.2em;
