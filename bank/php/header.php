@@ -19,8 +19,8 @@
             </div>
             <div class="header-right">
                 <div class="header-user">Sveiki, <?= $_SESSION['user']['name'] ?>! </div>
-                <form action="http://localhost/php/bank/php/login.php?logout ?>" method="post">
-                    <button class="btn btn-logout" type="submit">Logout</button>
+                <form action="http://localhost/php/bank/php/login.php?logout" method="post">
+                    <button type="submit" class="btn btn-logout">Logout</button>
                 </form>
             </div>
         </div>

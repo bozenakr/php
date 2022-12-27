@@ -46,6 +46,15 @@ body {
     margin-left: calc((100% - 95%) / 2);
 }
 
+/* BG img*/
+.bg {
+    background: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 /* HEADER start */
 
 header {

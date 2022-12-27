@@ -2,28 +2,39 @@
 // print_r($_SERVER['REQUEST_METHOD']);
 
 session_start();
+print_r($_SESSION);
 
-//tikrinam dar karta ar yra pasetintas useris
+//tikrinam dar karta ar yra pasetintas useris jei ne metam i login
 if(!isset($_SESSION['user'])) {
 header('Location: http://localhost/php/bank/php/login.php');
 die;
 }
 
 if (!file_exists(__DIR__ . '/data')) {
-  $arrUsers = [];
+    $arrUsers = [];
 } else {
-  $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
+    $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
+}
+
+
+foreach ($arrUsers as $user) {
+    if ($_POST['ak'] ?? '') {   
+    if ($_POST['ak'] == $user['ak']) {
+        header('Location: http://localhost/php/bank/php/new_account.php?errorAK2');
+        die;
+    } }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //vardas pavarde ilgesni nei 3
     if (strlen($_POST['name']) < 4 || strlen($_POST['surname']) < 4) {
         header('Location: http://localhost/php/bank/php/new_account.php?errorVardasPavarde');
         die;
         //asmens kodas -> 11 sk. -> 1sk(1-6) == 6sk. YY MM DD == 3sk. rand tą dieną gimusių asmenų eilės numeris == 1 rand
         //substr('abcdef', 1, 3);  // bcd// 
     } if ((strlen($_POST['ak']) != 11) || !is_numeric($_POST['ak']) || (((int)(substr($_POST['ak'], 5, 2)) > 31) || ((int)(substr($_POST['ak'], 3, 2)) > 12))) {
-         header('Location: http://localhost/php/bank/php/new_account.php?errorAK');
-         die;
+        header('Location: http://localhost/php/bank/php/new_account.php?errorAK');
+        die;
     } else {
         $id = rand(1000000, 10000000);
         $name = $_POST['name'];
@@ -48,6 +59,9 @@ if (isset($_GET['errorAK'])) {
     $errorAK = 'Toks asmens kodas neegzistuoja';
 }
 
+if (isset($_GET['errorAK2'])) {
+    $errorAK2 = 'Asmuo su tokiu asmens kodu jau turi sąskaitą';
+}
 
 require __DIR__ . './header.php';
 
@@ -108,6 +122,13 @@ require __DIR__ . './header.php';
         <?php if (isset($errorAK)) : ?>
         <div class="alert alert-danger" role="alert">
             <?= $errorAK ?>
+        </div>
+        <?php endif ?>
+    </div>
+    <div class="new">
+        <?php if (isset($errorAK2)) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $errorAK2 ?>
         </div>
         <?php endif ?>
     </div>

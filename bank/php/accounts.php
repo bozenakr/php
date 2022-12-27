@@ -2,6 +2,8 @@
 // print_r($_SERVER['REQUEST_METHOD']);
 session_start();
 
+print_r($_SESSION);
+
 //tikrinam dar karta ar yra pasetintas useris
 if(!isset($_SESSION['user'])) {
 header('Location: http://localhost/php/bank/php/login.php');
@@ -57,7 +59,7 @@ require __DIR__ . './header.php';
             <div class="table1">
                 <div class="content">
                     <div> <?=$user['id']?> </div>
-                    <div style="width: 150px"> <?=$user['name']?> <?=$user['surname']?> </div>
+                    <div class="width"> <?=$user['name']?> <?=$user['surname']?> </div>
                     <div> <?=$user['ak']?> </div>
                     <div> <?=$user['iban']?> </div>
                     <div> <?= number_format($user['balance'], 2, '.', '') ?> EUR</div>
@@ -118,7 +120,7 @@ require __DIR__ . './header.php';
         <?php endif ?>
     </div>
 
-    <form action="http://localhost/php/bank/php/seeder.php" method="post">
+    <form class="container" action="http://localhost/php/bank/php/seeder.php" method="post">
         <button type="submit">seeder</button>
     </form>
 </body>

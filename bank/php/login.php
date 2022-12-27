@@ -1,5 +1,8 @@
 <?php
 session_start();
+print_r($_SESSION);
+
+$users = unserialize(file_get_contents(__DIR__ . '/users'));
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_GET['logout'])) {
@@ -8,8 +11,6 @@ if (isset($_GET['logout'])) {
     header('Location: http://localhost/php/bank/php/login.php');
     die;
 }
-    $users = unserialize(file_get_contents(__DIR__ . '/users'));
-
     foreach($users as $user) {
         if ($user['name'] == $_POST['name']) {
         if ($user['psw'] == md5($_POST['psw'])) {
@@ -22,6 +23,8 @@ if (isset($_GET['logout'])) {
             header('Location: http://localhost/php/bank/php/login.php');
             die;
 }
+
+
 //setinam error
 if (isset($_GET['error'])) {
     $error = 'User name or password error';
