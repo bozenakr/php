@@ -2,18 +2,18 @@
 // print_r($_SERVER['REQUEST_METHOD']);
 session_start();
 
-print_r($_SESSION);
+// print_r($_SESSION);
 
 //tikrinam dar karta ar yra pasetintas useris
 if(!isset($_SESSION['user'])) {
-header('Location: http://localhost/php/bank/php/login.php');
+    header('Location: http://localhost/php/bank/php/login.php');
 die;
 }
 
 if (!file_exists(__DIR__ . '/data')) {
-  $arrUsers = [];
+    $arrUsers = [];
 } else {
-  $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
+    $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 }
 
 usort($arrUsers, fn ($x, $y) => $x['surname'] <=> $y['surname']);
@@ -37,7 +37,6 @@ if (isset($_GET['successAddAccount'])) {
 require __DIR__ . './header.php';
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -2,7 +2,7 @@
 // print_r($_SERVER['REQUEST_METHOD']);
 
 session_start();
-print_r($_SESSION);
+// print_r($_SESSION);
 
 //tikrinam dar karta ar yra pasetintas useris jei ne metam i login
 if(!isset($_SESSION['user'])) {
@@ -16,7 +16,6 @@ if (!file_exists(__DIR__ . '/data')) {
     $arrUsers = unserialize(file_get_contents(__DIR__ . '/data'));
 }
 
-
 foreach ($arrUsers as $user) {
     if ($_POST['ak'] ?? '') {   
     if ($_POST['ak'] == $user['ak']) {
@@ -24,6 +23,8 @@ foreach ($arrUsers as $user) {
         die;
     } }
 }
+
+$iban = 'LT' . rand(40,60) . 35000 . rand(10000000000,99999999999);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //vardas pavarde ilgesni nei 3
@@ -39,16 +40,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = rand(1000000, 10000000);
         $name = $_POST['name'];
         $surname = $_POST['surname'];
+        $manogautas_post_iban = $_POST['iban'];
         // LT -> 2 sk. kontroliniai -> 5sk. -> banko kodas 35000 -> 11sk. random
-        $iban = 'LT' . rand(40,60) . 35000 . rand(10000000000,99999999999);
         $ak = $_POST['ak'];
         $balance = 0;
-        $arrUsers[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $iban, 'ak' => $ak, 'balance' => $balance];
+        $arrUsers[] = ['id' => $id, 'name' => $name, 'surname' => $surname, 'iban' => $manogautas_post_iban, 'ak' => $ak, 'balance' => $balance];
         file_put_contents(__DIR__ .'/data', serialize($arrUsers));
         header('Location: http://localhost/php/bank/php/accounts.php?successAddAccount');
         die;
     }
 }
+
+// echo $iban;
 
 
 if (isset($_GET['errorVardasPavarde'])) {
@@ -99,7 +102,7 @@ require __DIR__ . './header.php';
                 </div>
                 <div class="flex">
                     <label>Sąskaitos numeris (IBAN)</label>
-                    <input class="input" readonly name="iban" class="" value="LT<?=  rand(40,60) . 35000 . rand(10000000000,99999999999) ?>">
+                    <input class="input" readonly name="iban" class="" value="<?= $iban ?>">
                 </div>
                 <div class="flex-center">
                     <button type="submit" class="btn">Sukurti</button>
