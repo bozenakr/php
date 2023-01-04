@@ -37,6 +37,7 @@ if (isset($_GET['successAddAccount'])) {
 require __DIR__ . './header.php';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +75,10 @@ require __DIR__ . './header.php';
             <?php endforeach ?>
         </div>
     </div>
+
+    <form class="container" action="http://localhost/php/bank/php/seeder.php" method="post">
+        <button type="submit">seeder</button>
+    </form>
 
     <!-- Sekminga operacija istrinti prideti lesas -->
     <?php if (isset($success)) : ?>
@@ -119,9 +124,6 @@ require __DIR__ . './header.php';
         <?php endif ?>
     </div>
 
-    <form class="container" action="http://localhost/php/bank/php/seeder.php" method="post">
-        <button type="submit">seeder</button>
-    </form>
 </body>
 
 </html>

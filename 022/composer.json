@@ -1,0 +1,16 @@
+{
+    "name": "bozen/022",
+    "autoload": {
+        "psr-4": {
+            "": "",
+            "Gilus\\Miskas\\Paupy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bozenakr",
+            "email": "bozena.krasevic@gmail.com"
+        }
+    ],
+    "require": {}
+}

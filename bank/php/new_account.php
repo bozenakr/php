@@ -28,12 +28,13 @@ $iban = 'LT' . rand(40,60) . 35000 . rand(10000000000,99999999999);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //vardas pavarde ilgesni nei 3
+    $postAk = $_POST['ak'];
     if (strlen($_POST['name']) < 4 || strlen($_POST['surname']) < 4) {
         header('Location: http://localhost/php/bank/php/new_account.php?errorVardasPavarde');
         die;
         //asmens kodas -> 11 sk. -> 1sk(1-6) == 6sk. YY MM DD == 3sk. rand tą dieną gimusių asmenų eilės numeris == 1 rand
         //substr('abcdef', 1, 3);  // bcd// 
-    } if ((strlen($_POST['ak']) != 11) || !is_numeric($_POST['ak']) || (((int)(substr($_POST['ak'], 5, 2)) > 31) || ((int)(substr($_POST['ak'], 3, 2)) > 12))) {
+    } if ((strlen($postAk) != 11) || !is_numeric($postAk) || ($postAk[0] < 2 || $postAk[0] > 7) || (((int)(substr($postAk, 5, 2)) > 31) || ((int)(substr($postAk, 3, 2)) > 12))) {
         header('Location: http://localhost/php/bank/php/new_account.php?errorAK');
         die;
     } else {

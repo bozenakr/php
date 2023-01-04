@@ -227,6 +227,11 @@
     font-size: 12px;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
 .btn-login {
     position: relative;
     display: inline-block;
@@ -252,16 +257,6 @@
     box-shadow: 0 0 5px #43bbff, 0 0 30px #43bbff, 0 0 50px #43bbff,
         0 0 100px #58f2fa;
 }
-
-/* input:-webkit-autofill {
-    background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0 50px rgb(231, 243, 246) inset;
-} */
-
-/* .input-login:-webkit-autofill {
-    background-color: transparent !important;
-    -webkit-box-shadow: none;
-} */
 
 @media (max-width: 992px) {
     .login-box {
