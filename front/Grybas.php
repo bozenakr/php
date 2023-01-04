@@ -42,4 +42,4 @@ class Grybas {
         (new FR('grybai'))->delete($id);
         return App::redirect('grybai');
     }
-    
+}

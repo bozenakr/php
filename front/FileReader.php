@@ -73,4 +73,3 @@ class FileReader implements DataBase {
         return $this->data;
     }
 }
-?>
